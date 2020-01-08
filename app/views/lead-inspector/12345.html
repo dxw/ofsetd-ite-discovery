@@ -1,6 +1,8 @@
 
 {% extends "layout.html" %}
 
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
@@ -12,7 +14,14 @@
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Inspection no. 12345</span>
       <h1 class="govuk-heading-xl">2Schools Consortium</h1>
+
+      <form action="confirm-planning-call" method="post" class="form">
+        {{ govukButton({
+          text: "Begin the workflow for inspection 12345"
+        }) }}
+      </form>
     </div>
+
 
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-m">Key information</h2>
@@ -76,6 +85,12 @@
     <div class="govuk-grid-column-one-third">
       <h2 class="govuk-heading-m">Pre-inspection materials</h2>
       <ul class="govuk-list">
+        {% if data["planningDocUploaded"] %}
+          <li>
+            <strong class="govuk-tag">new</strong>
+            <a class="govuk-link" href="#">Lead inspector's planning document</a>
+          </li>
+        {% endif %}
         <li>
           <a class="govuk-link" href="#">Fusce Dolor Nibh Ipsum Ornare</a>
         </li>

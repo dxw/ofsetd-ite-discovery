@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/lead-inspector/planning-call" method="post" class="form">
+
+        {{ govukCheckboxes({
+          idPrefix: "planning-call-made",
+          name: "planning-call-made",
+          fieldset: {
+            legend: {
+              text: "Have you had the planning call with the ITE partnership?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "You must call the ITE provider to explain to them the planning process before you can continue the workflow."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "I have had the planning call with the ITE partnership"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+        {{ govukButton({
+          text: "Return to inspection page",
+          classes: "govuk-button--secondary",
+          href: "12345"
+        }) }}
+
+      </form>
+
+    </div>
+
+
+
+  </div>
+
+{% endblock %}

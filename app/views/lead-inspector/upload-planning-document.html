@@ -1,0 +1,39 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Upload your planning document
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">Upload your planning document</h1>
+
+      <form action="upload-planning-document" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "planning-doc-upload",
+          name: "planning-doc-upload",
+          label: {
+            text: "Upload your document"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Upload your document"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}
