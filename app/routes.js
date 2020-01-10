@@ -33,7 +33,7 @@ router.post('/lead-inspector/upload-planning-document', function (req, res) {
 
   // This is the URL the users will be redirected to once the email
   // has been sent
-  res.redirect('Confirmation');
+  res.redirect('confirmation');
 
 });
 
