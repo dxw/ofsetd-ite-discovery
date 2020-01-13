@@ -1,6 +1,9 @@
 
 {% extends "layout.html" %}
 
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
@@ -10,12 +13,44 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Ofsted ITE prototypes
+        Sign in to manage your Ofsted inspections
       </h1>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/lead-inspector/index">Lead inspector</a></li>
-      </ul>
+      <form action="lead-inspector/dashboard" method="post" class="form">
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          id: "email",
+          name: "email",
+          type: "email",
+          autocomplete: "email",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Password"
+          },
+          id: "password",
+          name: "password",
+          type: "password",
+          autocomplete: "password",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Sign in"
+        }) }}
+
+      </form>
+
+
     </div>
 </div>
 
