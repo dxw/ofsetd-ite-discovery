@@ -13,6 +13,7 @@
       </h1>
 
       <ol class="app-task-list">
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">1. </span> Pre-inspection activities
@@ -24,6 +25,9 @@
                   Read pre-inspection materials
                 </a>
               </span>
+              {% if data["readPreInspectionMaterials"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -31,15 +35,22 @@
                   Hold planning call with the provider
                 </a>
               </span>
+              {% if data["planningCallHeld"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="upload-planning-document" aria-describedby="read-declaration-completed">
                     Send planning document to the provider
                   </a>
                 </span>
+                {% if data["planningDocUploaded"] %}
+                  <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+                {% endif %}
             </li>
           </ul>
         </li>
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span> Prepare application
@@ -85,6 +96,7 @@
             </li>
           </ul>
         </li>
+
         <li>
           <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">3. </span> Apply
@@ -99,6 +111,7 @@
             </li>
           </ul>
         </li>
+
       </ol>
 
     </div>
