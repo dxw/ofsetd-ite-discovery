@@ -2,9 +2,28 @@
 {% extends "layout.html" %}
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
 {% block pageTitle %}
   GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345"
+    }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
