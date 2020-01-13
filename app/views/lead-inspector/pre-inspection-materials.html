@@ -39,10 +39,46 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
       <h1 class="govuk-heading-xl">Pre inspection materials</h1>
     </div>
 
     <div class="govuk-grid-column-two-thirds">
+
+      <form action="task-list" method="post" class="form">
+
+        {{ govukCheckboxes({
+          idPrefix: "readPreInspectionMaterials",
+          name: "readPreInspectionMaterials",
+          fieldset: {
+            legend: {
+              text: "Have you read the pre-inspection materials?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "You must read the pre-inspection materials."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "I have read the pre-inspection materials"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
 
     </div>
 
