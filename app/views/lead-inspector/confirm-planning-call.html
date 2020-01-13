@@ -3,14 +3,51 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
 
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Planning call"
+    }
+    ]
+  }) }}
+{% endblock %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Planning call</h1>
+    </div>
 
     <div class="govuk-grid-column-two-thirds">
 
@@ -22,8 +59,8 @@
           fieldset: {
             legend: {
               text: "Have you had the planning call with the ITE partnership?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
@@ -40,12 +77,6 @@
         {{ govukButton({
           text: "Save and continue",
           classes: "govuk-!-margin-right-1"
-        }) }}
-
-        {{ govukButton({
-          text: "Return to inspection page",
-          classes: "govuk-button--secondary",
-          href: "12345"
         }) }}
 
       </form>
