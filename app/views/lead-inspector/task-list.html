@@ -78,6 +78,16 @@
                   <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
                 {% endif %}
             </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="send-information-to-team-members" aria-describedby="send-information-to-team-members-completed">
+                  Send information to inspection team members
+                </a>
+              </span>
+              {% if data["infoToTeamMembersUploaded"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
+          </li>
           </ul>
         </li>
 

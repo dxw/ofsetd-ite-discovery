@@ -1,0 +1,83 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Send information to inspection team members
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Send information to inspection team members"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Send information to your team members</h1>
+
+      <form action="send-information-to-team-members" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "infoToTeamMembersUploaded",
+          name: "infoToTeamMembersUploaded",
+          label: {
+            text: ""
+          }
+        }) }}
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            The document you are uploading will be emailed to the following team members:
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Niall Booth</li>
+                <li>Elaine Martel</li>
+                <li>Gaz Aston</li>
+              </ul>
+          </strong>
+        </div>
+
+        {{ govukButton({
+          text: "Upload your document"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}
