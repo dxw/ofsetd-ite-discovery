@@ -3,6 +3,7 @@
 
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% block pageTitle %}
   Send information to inspection team members
@@ -37,44 +38,96 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-
-    <div class="govuk-grid-column-full">
-
+    <div class="govuk-grid-column-two-thirds">
       {{ govukBackLink({
         text: "Back",
         href: "task-list"
       }) }}
-
       <h1 class="govuk-heading-xl">Send information to your team members</h1>
+    </div>
+  </div>
 
-      <form action="send-information-to-team-members" method="post" class="form">
+  <div class="govuk-grid-row">
 
+    <div class="govuk-grid-column-two-thirds">
+
+      <table class="govuk-table">
+
+        <caption class="govuk-table__caption govuk-heading-m">Your files</caption>
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">File name</th>
+            <th scope="col" class="govuk-table__header">Date uploaded</th>
+            <th scope="col" class="govuk-table__header">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="#">inspection plan.doc</a>
+            </th>
+            <td class="govuk-table__cell">18 January 2020</td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">Delete</a>
+            </td>
+          </tr>
+
+          {% if data["infoToTeamMembersUploaded"]|length or data["infoToTeamMembersUploaded"] == "" %}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="#">school info.doc</a>
+            </th>
+            <td class="govuk-table__cell">21 January 2020</td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#">Delete</a>
+            </td>
+          </tr>
+          {% endif %}
+        </tbody>
+
+      </table>
+
+      <form action="send-information-to-team-members" method="post" class="form govuk-!-margin-top-9">
         {{ govukFileUpload({
           id: "infoToTeamMembersUploaded",
           name: "infoToTeamMembersUploaded",
           label: {
-            text: ""
+            text: "Add a file",
+            classes: "govuk-heading-m govuk-!-font-weight-bold"
           }
         }) }}
 
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            The document you are uploading will be emailed to the following team members:
-            <ul class="govuk-list govuk-list--bullet">
-                <li>Niall Booth</li>
-                <li>Elaine Martel</li>
-                <li>Gaz Aston</li>
-              </ul>
-          </strong>
-        </div>
-
         {{ govukButton({
-          text: "Upload your document"
+          text: "Upload your file",
+          classes: "govuk-button--secondary"
         }) }}
-
       </form>
+
+      <hr class="separator" />
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">No more information to add for this inspection?</h2>
+
+      {{ govukButton({
+        text: "Mark this task as completed",
+        classes: "govuk-button",
+        href: "send-info-confirm"
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <div class="govuk-panel govuk-panel--side">
+        <h3 class="govuk-heading-s">Your inspection team</h3>
+        <p class="govuk-body">Each time you upload a file, a notification will be emailed to the following team members:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Niall Booth</li>
+          <li>Elaine Martel</li>
+          <li>Gaz Aston</li>
+        </ul>
+      </div>
+
 
     </div>
 

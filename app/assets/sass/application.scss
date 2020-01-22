@@ -14,5 +14,25 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
+@import "inverted";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.govuk-panel--side {
+  text-align: left;
+  background-color: govuk-colour("blue");
+  padding: 0.5em;
+  margin: 1em;
+  margin-top: 0;
+
+  .govuk-heading-s,
+  p,
+  a,
+  li {
+      color: #ffffff;
+  }
+}
+
+.govuk-panel--interruption {
+  text-align: left;
+}

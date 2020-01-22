@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirmation page example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <div class="govuk-panel govuk-panel--interruption app-inverted">
+
+        <form action="task-list" method="post" class="form">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading app-inverted govuk-!-margin-bottom-5">
+                  Are you sure this task is completed?
+                </h1>
+              </legend>
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="infoToTeamMembersUploadedCompleted" name="infoToTeamMembersUploadedCompleted" type="checkbox" value="completed">
+                  <label class="govuk-label govuk-checkboxes__label app-inverted" for="infoToTeamMembersUploadedCompleted">
+                    I've finished adding information to share with my team for this inspection
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          {{ govukButton({
+            text: "Save and continue",
+            classes: "govuk-button app-button--inverted"
+          }) }}
+        </form>
+
+
+        <p class="govuk-body app-inverted"><a class="app-link--inverted" href="send-information-to-team-members">Go back and add more files</a></p>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
