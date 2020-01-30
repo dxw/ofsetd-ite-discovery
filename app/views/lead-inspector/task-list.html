@@ -43,7 +43,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="pre-inspection-materials" aria-describedby="eligibility-completed">
+                <a href="pre-inspection-materials">
                   Read pre-inspection materials
                 </a>
               </span>
@@ -53,7 +53,7 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="ISA-call-to-notify-provider" aria-describedby="ISA-call-to-provider-completed">
+                <a href="ISA-call-to-notify-provider">
                   ISA's call to notify the ITE Partnership
                 </a>
               </span>
@@ -61,26 +61,37 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="confirm-planning-call" aria-describedby="read-declaration-completed">
+                <a href="confirm-planning-call">
                   Call the ITE partnership to plan the inspection
                 </a>
               </span>
               {% if data["planningCallHeld"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="upload-planning-document" aria-describedby="read-declaration-completed">
-                    Send planning document to the provider
-                  </a>
-                </span>
-                {% if data["planningDocUploaded"] %}
-                  <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
-                {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="send-information-to-team-members" aria-describedby="send-information-to-team-members-completed">
+                <a href="check-information-provided-by-ite-partnership">
+                  Check the documents sent by the ITE partnership
+                </a>
+              </span>
+              {% if data["checkIteInformation"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="upload-planning-document">
+                  Send planning document to the provider
+                </a>
+              </span>
+              {% if data["planningDocUploaded"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="send-information-to-team-members">
                   Send information to inspection team members
                 </a>
               </span>
