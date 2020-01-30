@@ -50,41 +50,8 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="task-list" method="post" class="form">
-
-        {{ govukCheckboxes({
-          idPrefix: "readPreInspectionMaterials",
-          name: "readPreInspectionMaterials",
-          fieldset: {
-            legend: {
-              text: "Have you reviewed the pre-inspection materials?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "The pre-inspection materials help your preparation for the inspection."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "I have reviewed the pre-inspection materials"
-            }
-          ]
-        }) }}
-
-        {{ govukButton({
-          text: "Save and continue",
-          classes: "govuk-!-margin-right-1"
-        }) }}
-
-      </form>
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
       <h2 class="govuk-heading-m">Pre-inspection materials</h2>
-      <ul class="govuk-list">
+      <ul class="govuk-list govuk-list--bullet">
         <li>
           <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
         </li>
@@ -94,6 +61,32 @@
         <li>
           <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
       </ul>
+
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+
+        {{ govukCheckboxes({
+          idPrefix: "readPreInspectionMaterials",
+          name: "readPreInspectionMaterials",
+          items: [
+          {
+            value: true,
+            text: "Mark task as completed",
+            checked: checked("readPreInspectionMaterials", "true")
+          }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
     </div>
 
   </div>
