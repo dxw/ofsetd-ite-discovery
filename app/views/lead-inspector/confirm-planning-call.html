@@ -103,26 +103,17 @@
         {{ govukCheckboxes({
           idPrefix: "planningCallHeld",
           name: "planningCallHeld",
-          fieldset: {
-            legend: {
-              text: "Have you had both conversations with the ITE partnership?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            text: "You must do this before you can continue the workflow."
-          },
           items: [
           {
-            value: "yes",
-            text: "I have had both calls with the ITE partnership."
+            value: true,
+            text: "Mark task as completed",
+            checked: checked("planningCallHeld", "true")
           }
           ]
         }) }}
 
         {{ govukButton({
-          text: "Save and continue",
+          text: "Continue",
           classes: "govuk-!-margin-right-1"
         }) }}
 
