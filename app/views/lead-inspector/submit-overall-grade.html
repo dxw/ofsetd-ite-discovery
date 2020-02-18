@@ -45,47 +45,49 @@
         href: "task-list"
       }) }}
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              What's the overall grade for this inspection?
-            </h1>
-          </legend>
-          <span id="changed-name-hint" class="govuk-hint">
-            Inadequate grades will go through an enhanced QA process.
-          </span>
-        <div class="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="Outstanding">
-            <label class="govuk-label govuk-radios__label" for="changed-name">
-              Outstanding
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="Good">
-            <label class="govuk-label govuk-radios__label" for="changed-name-2">
-              Good
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-3" name="changed-name" type="radio" value="Requires Improvement">
-            <label class="govuk-label govuk-radios__label" for="changed-name-3">
-              Requires Improvement
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="changed-name-4" name="changed-name" type="radio" value="Inadequate">
-            <label class="govuk-label govuk-radios__label" for="changed-name-4">
-              Inadequate
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
 
-    <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+        <div class="govuk-form-group">
 
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                What's the overall grade for this inspection?
+              </h1>
+            </legend>
+            <span id="changed-name-hint" class="govuk-hint">
+              Inadequate grades will go through an enhanced QA process.
+            </span>
+
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name" name="submit-overall-grade" type="radio" value="Outstanding" {{ checked("submit-overall-grade", "Outstanding") }}>
+                <label class="govuk-label govuk-radios__label" for="changed-name">
+                  Outstanding
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-2" name="submit-overall-grade" type="radio" value="Good" {{ checked("submit-overall-grade", "Good") }}>
+                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                  Good
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-3" name="submit-overall-grade" type="radio" value="Requires Improvement" {{ checked("submit-overall-grade", "Requires Improvement") }}>
+                <label class="govuk-label govuk-radios__label" for="changed-name-3">
+                  Requires Improvement
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-4" name="submit-overall-grade" type="radio" value="Inadequate" {{ checked("submit-overall-grade", "Inadequate") }}>
+                <label class="govuk-label govuk-radios__label" for="changed-name-4">
+                  Inadequate
+                </label>
+              </div>
+            </div>
+
+        </fieldset>
+      </div>
 
       {{ govukButton({
         text: "Continue",

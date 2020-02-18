@@ -54,13 +54,13 @@
       <form action="task-list" method="post" class="form govuk-!-padding-top-7">
 
         {{ govukCheckboxes({
-          idPrefix: "planningCallHeld",
-          name: "planningCallHeld",
+          idPrefix: "prepareInspectionReport",
+          name: "prepareInspectionReport",
           items: [
           {
             value: true,
             text: "Mark task as completed",
-            checked: checked("planningCallHeld", "true")
+            checked: checked("prepareInspectionReport", "true")
           }
           ]
         }) }}

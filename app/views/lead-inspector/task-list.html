@@ -138,47 +138,55 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="prepare-inspection-report"aria-describedby="prepare-the-inspection report">
-                  Prepare the draft inspection report
+                <a href="submit-overall-grade" aria-describedby="overall-frade-submitted">
+                  Submit the overall grade for this inspection
+                </a>
+              </span>
+              {% if data["submit-overall-grade"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="prepare-inspection-report"aria-describedby="prepare-the-inspection-report">
+                  Download the draft inspection report template
+                </a>
+              </span>
+              {% if data["prepareInspectionReport"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="upload-draft-inspection-report-for-qa" aria-describedby="draft-inspection-report-for-qa-uploaded">
+                  Upload the draft inspection report for AQ
+                </a>
+              </span>
+              {% if data["uploadDraftInspectionReportForQa"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                  Respond to comments received after quality assurance
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="submit-overall-grade" aria-describedby="overall-frade-submitted">
-                  Submit the overall grade for this inspection
+                <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                  Review and resolve the partnership's factual accuracy comments
                 </a>
               </span>
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="upload-draft-inspection-report-for-QA" aria-describedby="draft-inspection-report-for-QA-uploaded">
-                    Upload the draft inspection report for QA
-                  </a>
-                </span>
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
-                    Review and resolve the partnership's factual accuracy comments
-                  </a>
-                </span>
-                <li class="app-task-list__item">
-                  <span class="app-task-list__task-name">
-                    <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
-                      Submit the draft inspection report for quality assurance
-                    </a>
-                  </span>
-                  <li class="app-task-list__item">
-                    <span class="app-task-list__task-name">
-                      <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
-                        Conduct the final review of the inspection report after QA
-                      </a>
-                    </span>
-                <li class="app-task-list__item">
-                  <span class="app-task-list__task-name">
-                    <a href="#" aria-describedby="latest-report-flagged-ready-for-publication">
-                    Upload the final version ready for publication
-                    </a>
-                  </span>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="latest-report-flagged-ready-for-publication">
+                Upload the final version ready for publication
+                </a>
+              </span>
+            </li>
           </ul>
         </li>
 
