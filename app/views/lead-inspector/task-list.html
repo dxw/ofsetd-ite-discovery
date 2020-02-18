@@ -168,10 +168,13 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                <a href="respond-to-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
                   Respond to comments received after quality assurance
                 </a>
               </span>
+              {% if data["comment-1"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
