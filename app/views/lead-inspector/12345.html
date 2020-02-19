@@ -1,6 +1,10 @@
 
 {% extends "layout.html" %}
 
+{% if data["uploadDraftInspectionReportForQa"] %}
+  <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
+{% endif %}
+
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
 
@@ -31,6 +35,11 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-full">
+
+      {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
+        <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
+      {% endif %}
+
       <span class="govuk-caption-xl">Inspection no. 12345</span>
       <h1 class="govuk-heading-xl">2Schools Consortium</h1>
 

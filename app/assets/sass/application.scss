@@ -18,6 +18,8 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+@import "components/alert";
+
 .govuk-panel--side {
   text-align: left;
   background-color: govuk-colour("blue");
@@ -35,4 +37,8 @@ $govuk-assets-path: '/govuk/assets/';
 
 .govuk-panel--interruption {
   text-align: left;
+}
+
+.task-in-progress {
+  background-color: govuk-colour("green");
 }

@@ -29,7 +29,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
         Inspection activities for 2Schools Consortium
       </h1>
@@ -148,18 +148,8 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="prepare-inspection-report"aria-describedby="prepare-the-inspection-report">
-                  Download the draft inspection report template
-                </a>
-              </span>
-              {% if data["prepareInspectionReport"] %}
-                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
-              {% endif %}
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
                 <a href="upload-draft-inspection-report" aria-describedby="draft-inspection-report-for-qa-uploaded">
-                  Upload the draft inspection report for QA
+                  Get a template and upload the draft inspection report for QA
                 </a>
               </span>
               {% if data["uploadDraftInspectionReportForQa"] %}
@@ -167,15 +157,27 @@
               {% endif %}
             </li>
             <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
-                  Respond to comments received after quality assurance
-                </a>
-              </span>
+              {% if data["uploadDraftInspectionReportForQa"] %}
+                <span class="app-task-list__task-name">
+                  <a href="respond-to-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                    Respond to comments received after quality assurance
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__task-completed task-in-progress" id="send-information-to-team-members-completed">In progress</strong>
+              {% else %}
+                <span class="app-task-list__task-name">
+                  <a href="respond-to-comments-no-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                    Respond to comments received after quality assurance
+                  </a>
+                </span>
+              {% endif %}
+              {% if data["comment-1"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="Review-and-resolve-the-partnership's-factual-accuracy-comments" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                <a href="review-and-resolve" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
                   Review and resolve the partnership's factual accuracy comments
                 </a>
               </span>

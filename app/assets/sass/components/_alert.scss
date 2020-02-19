@@ -1,0 +1,12 @@
+.alert {
+  // border: 1px solid govuk-colour("blue");
+  background-color: govuk-colour("green");
+  color: govuk-colour("white");
+  padding: govuk-spacing(3);
+  a {
+    color: rgba(255, 255, 255, 0.9);
+    &:hover {
+      color: govuk-colour("white");
+    }
+  }
+}
