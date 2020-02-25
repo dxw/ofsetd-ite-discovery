@@ -1,0 +1,24 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your dashboard - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {% if data["uploadDraftInspectionReportForQa"] %}
+        <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Inspection 12345: Respond to comments received after quality assurance</a></p>
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">
+        Your dashboard
+      </h1>
+
+    </div>
+</div>
+
+{% endblock %}
