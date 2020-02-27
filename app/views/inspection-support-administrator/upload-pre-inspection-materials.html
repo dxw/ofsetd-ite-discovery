@@ -45,24 +45,18 @@
         href: "task-list"
       }) }}
 
-      <h1 class="govuk-heading-xl">Upload Pre inspection materials</h1>
+      <h1 class="govuk-heading-xl">Upload pre-inspection materials</h1>
     </div>
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-l">Pre-inspection materials specific to 2Schools Consortium</h2>
+      <h2 class="govuk-heading-l">Materials specific to 2Schools Consortium</h2>
       <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Joining instructions and team briefing</a>
-        </li>
         <li>
           <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
       </ul>
 
-      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload your provider specific documents</h1>
+      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload more provider specific documents</h1>
 
       <form action="upload-pre-inspection-materials" method="post" class="form">
 
@@ -83,8 +77,8 @@
       <form action="task-list" method="post" class="form govuk-!-padding-top-9">
 
       {{ govukCheckboxes({
-        idPrefix: "readPreInspectionMaterials",
-        name: "readPreInspectionMaterials",
+        idPrefix: "uploadPreinspectionMaterials",
+        name: "uploadPreinspectionMaterials",
         items: [
         {
           value: true,
@@ -113,10 +107,14 @@
               <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
             </li>
             <li>
-              <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Joining instructions and team briefing</a>
+              <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Example of joining instructions and team briefing</a>
             </li>
             <li>
-              <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
+              <a class="govuk-link" href="">Deferral policy</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="">Evidence form for ITE inspections</a>
+            </li>
           </ul>
         </nav>
       </aside>

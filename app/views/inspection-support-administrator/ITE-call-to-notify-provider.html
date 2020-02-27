@@ -183,6 +183,19 @@
             </a>
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Deferral requested?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="deferral-requested">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
       </dl>
       <div class="govuk-form-group">
         <label class="govuk-label" for="more-detail">
@@ -196,8 +209,8 @@
         <form action="task-list" method="post" class="form govuk-!-padding-top-7">
 
           {{ govukCheckboxes({
-            idPrefix: "readPreInspectionMaterials",
-            name: "readPreInspectionMaterials",
+            idPrefix: "isaCalledThePartnership",
+            name: "isaCalledThePartnership",
             items: [
             {
               value: true,

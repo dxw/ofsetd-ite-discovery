@@ -47,7 +47,7 @@
                   Upload pre-inspection materials and survey results
                 </a>
               </span>
-              {% if data["readPreInspectionMaterials"] %}
+              {% if data["uploadPreinspectionMaterials"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
@@ -57,7 +57,7 @@
                   Call the ITE partnership to notify about the inspection
                 </a>
               </span>
-              {% if data["readPreInspectionMaterials"] %}
+              {% if data["isaCalledThePartnership"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
@@ -67,7 +67,9 @@
                   Send the partnership an email confirmation of inspection
                 </a>
               </span>
+              {% if data["emailNotification"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
@@ -83,7 +85,7 @@
                   Check draft report for formatting
                 </a>
               </span>
-              {% if data["readPreInspectionMaterials"] %}
+              {% if data["xxxx"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
@@ -93,7 +95,9 @@
                   Send cover letter with factual accuracy notification
                 </a>
               </span>
+              {% if data["xxxx"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -101,7 +105,7 @@
                   Notify provider of publication of inspection report
                 </a>
               </span>
-              {% if data["planningCallHeld"] %}
+              {% if data["xxxx"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
