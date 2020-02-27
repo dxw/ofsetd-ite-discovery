@@ -45,12 +45,12 @@
         href: "task-list"
       }) }}
 
-      <h1 class="govuk-heading-xl">Pre inspection materials</h1>
+      <h1 class="govuk-heading-xl">Upload Pre inspection materials</h1>
     </div>
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-m">Pre-inspection materials specific to 2Schools Consortium</h2>
+      <h2 class="govuk-heading-l">Pre-inspection materials specific to 2Schools Consortium</h2>
       <ul class="govuk-list govuk-list--bullet">
         <li>
           <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
@@ -62,27 +62,52 @@
           <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
       </ul>
 
-      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload your provider specific documents</h1>
 
-        {{ govukCheckboxes({
-          idPrefix: "readPreInspectionMaterials",
-          name: "readPreInspectionMaterials",
-          items: [
-          {
-            value: true,
-            text: "Mark task as completed",
-            checked: checked("readPreInspectionMaterials", "true")
+      <form action="upload-pre-inspection-materials" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "planningDocUploaded",
+          name: "planningDocUploaded",
+          label: {
+            text: ""
           }
-          ]
         }) }}
 
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </strong>
+        </div>
+
         {{ govukButton({
-          text: "Continue",
-          classes: "govuk-!-margin-right-1"
+          text: "Upload your document"
         }) }}
 
       </form>
+      <hr class="separator">
+      <form action="task-list" method="post" class="form govuk-!-padding-top-9">
 
+      {{ govukCheckboxes({
+        idPrefix: "readPreInspectionMaterials",
+        name: "readPreInspectionMaterials",
+        items: [
+        {
+          value: true,
+          text: "Mark task as completed",
+          checked: checked("readPreInspectionMaterials", "true")
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-top-2"
+      }) }}
+
+    </form>
     </div>
 
     <div class="govuk-grid-column-one-third">
