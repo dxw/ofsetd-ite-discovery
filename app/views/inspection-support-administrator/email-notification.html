@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Upload your planning document - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Upload draft inspection report for QA"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Send the partnership an email confirmation of inspection</h1>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="email-notification" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h2 class="govuk-heading-l">
+                Have you been able to talk to the partnership?
+              </h2>
+            </legend>
+            <span id="changed-name-hint" class="govuk-hint">
+              Your answer will change what the letter says.
+            </span>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="emailNotification" name="emailNotification" type="radio" value="yes" {{ checked("emailNotification","yes") }}>
+                <label class="govuk-label govuk-radios__label" for="notification-letter">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="emailNotification" name="emailNotification" type="radio" value="no" {{ checked("emailNotification","no") }}>
+                <label class="govuk-label govuk-radios__label" for="notification-letter">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+
+{% endblock %}

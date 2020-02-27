@@ -1,0 +1,105 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Upload your planning document - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Upload draft inspection report for QA"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    {{ govukBackLink({
+      text: "Back",
+      href: "task-list"
+    }) }}
+
+    <div class="govuk-grid-column-two-thirds">
+       <form action="task-list" method="post" class="form">
+          <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+                  You are about to send notification email to:
+                </h1>
+              </legend>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Ert</li>
+                <li>Israt Choudhury</li>
+              </ul>
+            </fieldset>
+          <fieldset class="govuk-fieldset govuk-!-margin-top-7">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h2 class="govuk-heading-m">
+                Add additional emails that you wish to send this notification email:
+              </h2>
+            </legend>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="responsible-person">
+                Enter email address
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="nofitication-email" name="nofitication-email" type="text">
+            </div>
+
+          </fieldset>
+
+        {{ govukCheckboxes({
+          idPrefix: "emailNotification",
+          name: "emailNotification",
+          items: [
+          {
+            value: true,
+            text: "Mark task as completed",
+            checked: checked("remailNotification", "true")
+          }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Submit and Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-panel govuk-panel--side app-inverted">
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-m app-inverted">Preview of Notification letter</h2>
+          <p class="app-inverted"><a class="app-inverted" href="https://drive.google.com/file/d/1PNx2u9DqZay4R9wYX9DqzPTiO-Yg0Iix/view?usp=sharing" target="_blank">Copy of the Notification letter (PDF) </a></p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
