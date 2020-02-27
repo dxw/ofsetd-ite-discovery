@@ -48,20 +48,31 @@
 
 
     <div class="govuk-grid-column-two-thirds">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h2 class="govuk-fieldset__heading">
-            Responsible person's new number
-          </h2>
-        </legend>
+      <form class="form" action="email-notification" method="post">
         <div class="govuk-form-group">
-          <label class="govuk-label" for="responsible-person">
-            Enter the new number you get on the phone call
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="responsible-person" name="responsible-person" type="text">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h2 class="govuk-heading-xl">
+                Has the partnership requested a deferral?
+              </h2>
+            </legend>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="emailNotification" name="emailNotification" type="radio" value="yes" {{ checked("emailNotification","yes") }}>
+                <label class="govuk-label govuk-radios__label" for="notification-letter">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="emailNotification" name="emailNotification" type="radio" value="no" {{ checked("emailNotification","no") }}>
+                <label class="govuk-label govuk-radios__label" for="notification-letter">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
         </div>
 
-      </fieldset>
       <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
           {{ govukButton({
             text: "Save and continue"

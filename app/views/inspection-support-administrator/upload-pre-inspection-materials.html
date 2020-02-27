@@ -1,0 +1,125 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Pre-inspection materials - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Pre-inspection materials"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Upload pre-inspection materials</h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">Materials specific to 2Schools Consortium</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
+      </ul>
+
+      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload more provider specific documents</h1>
+
+      <form action="upload-pre-inspection-materials" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "planningDocUploaded",
+          name: "planningDocUploaded",
+          label: {
+            text: ""
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Upload your document"
+        }) }}
+
+      </form>
+      <hr class="separator">
+      <form action="task-list" method="post" class="form govuk-!-padding-top-9">
+
+      {{ govukCheckboxes({
+        idPrefix: "uploadPreinspectionMaterials",
+        name: "uploadPreinspectionMaterials",
+        items: [
+        {
+          value: true,
+          text: "Mark task as completed",
+          checked: checked("readPreInspectionMaterials", "true")
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-top-2"
+      }) }}
+
+    </form>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Generic pre-inspection materials
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Example of joining instructions and team briefing</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="">Deferral policy</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="">Evidence form for ITE inspections</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+  </div>
+
+{% endblock %}

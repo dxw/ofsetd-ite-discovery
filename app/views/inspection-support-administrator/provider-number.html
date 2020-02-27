@@ -37,14 +37,12 @@
     <div class="govuk-grid-column-full">
       {{ govukBackLink({
         text: "Back",
-        href: "task-list"
+        href: "ITE-call-to-notify-provider"
       }) }}
 
       {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
         <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
       {% endif %}
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     </div>
 
@@ -53,14 +51,14 @@
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
           <h2 class="govuk-fieldset__heading">
-            Provider's detail
+            Partnership's new phone number
           </h2>
         </legend>
         <div class="govuk-form-group">
-          <label class="govuk-label" for="responsible-person">
-            Enter telephone number
+          <label class="govuk-label" for="provider-nummber">
+            Enter the new phone number that you get on the phone call
           </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="responsible-person" name="responsible-person" type="text">
+          <input class="govuk-input govuk-!-width-two-thirds" id="provider-number" name="responsible-person" type="text">
         </div>
 
       </fieldset>

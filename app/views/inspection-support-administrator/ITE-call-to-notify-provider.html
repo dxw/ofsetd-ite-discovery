@@ -44,7 +44,7 @@
         <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
       {% endif %}
 
-      <h1 class="govuk-heading-xl">ISA's to notify the ITE partnership about the inspection</h1>
+      <h1 class="govuk-heading-xl">Call to notify the ITE partnership about the inspection</h1>
 
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
@@ -69,7 +69,7 @@
             Lead inspector
           </dt>
           <dd class="govuk-summary-list__value">
-            Sarah Philips
+            Sarah Philips, HMI
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -100,6 +100,9 @@
             N13 6BY
           </dd>
           <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="providers-address">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -133,7 +136,7 @@
             Responsible person's email address
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="mailto:training@oakthorpe.enfield.sch.uk">isabellamora@gmail.com</a>
+            <a href="mailto:i.mora@2schoolsconsortium.org">i.mora@2schoolsconsortium.org</a>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="responsible-person-email-address">
@@ -159,7 +162,7 @@
             Provider's email address
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="mailto:training@oakthorpe.enfield.sch.uk">edu@bcu.ac.uk</a>
+            <a href="mailto:info@2schoolsconsortium.org">info@2schoolconsortium.org</a>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="providers-email-address">
@@ -167,21 +170,47 @@
             </a>
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number of trainees
+          </dt>
+          <dd class="govuk-summary-list__value">
+            14
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="number-of-trainees">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Deferral requested?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="deferral-requested">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
       </dl>
       <div class="govuk-form-group">
         <label class="govuk-label" for="more-detail">
-          <strong>ISA's Comments</strong>
+          <strong>Your Comments</strong>
         </label>
          <span id="more-detail-hint" class="govuk-hint">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc viverra et eros id lacinia. Integer mauris nisi, pellentesque quis tristique et, rutrum a nulla.
+          These comments will be seen by the Lead Inspector, so leave them any information that you think might be useful for their inspection preparation.
         </span>
         <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
 
         <form action="task-list" method="post" class="form govuk-!-padding-top-7">
 
           {{ govukCheckboxes({
-            idPrefix: "readPreInspectionMaterials",
-            name: "readPreInspectionMaterials",
+            idPrefix: "isaCalledThePartnership",
+            name: "isaCalledThePartnership",
             items: [
             {
               value: true,

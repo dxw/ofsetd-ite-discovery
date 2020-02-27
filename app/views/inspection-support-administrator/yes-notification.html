@@ -37,19 +37,53 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "email-notification"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Send the confirmation letter for an inspection</h1>
+    </div>
     <div class="govuk-grid-column-two-thirds">
        <form action="task-list" method="post" class="form">
           <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
-                  You are about to send notification email to:
+                <h1 class="govuk-heading-m govuk-!-margin-bottom-5">
+                  You are about to send the notification letter to:
                 </h1>
               </legend>
-              <ul class="govuk-list govuk-list--bullet">
-                <li>Niall Booth</li>
-                <li>Elaine Martel</li>
-                <li>Gaz Aston</li>
-              </ul>
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Who</th>
+                    <th scope="col" class="govuk-table__header">Email address</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Responsible person</th>
+                    <td class="govuk-table__cell">i.mora@2schoolsconsortium.org</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Provider</th>
+                    <td class="govuk-table__cell">info@2schoolconsortium.org</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Dept. for Education</th>
+                    <td class="govuk-table__cell">itt.ofstedliaison@education.gsi.gov.uk performance.team@education.gsi.gov.uk</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lead Inspector (bcc)</th>
+                    <td class="govuk-table__cell">sarah.philips@ofsted.gov.uk</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Ofsted inspection planning (bcc)</th>
+                    <td class="govuk-table__cell">inspection.planning@ofsted.gov.uk</td>
+                  </tr>
+                </tbody>
+              </table>
             </fieldset>
           <fieldset class="govuk-fieldset govuk-!-margin-top-7">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -59,7 +93,7 @@
             </legend>
             <div class="govuk-form-group">
               <label class="govuk-label" for="responsible-person">
-                Enter email address
+                Enter email addresses separated by a coma
               </label>
               <input class="govuk-input govuk-!-width-two-thirds" id="nofitication-email" name="nofitication-email" type="text">
             </div>
@@ -88,7 +122,7 @@
       <div class="govuk-panel govuk-panel--side app-inverted">
         <div class="govuk-form-group">
           <h2 class="govuk-heading-m app-inverted">Preview of Notification letter</h2>
-          <p class="app-inverted"><a class="app-inverted" href="https://drive.google.com/file/d/1PNx2u9DqZay4R9wYX9DqzPTiO-Yg0Iix/view?usp=sharing" target="_blank">Copy of the Notification letter (PDF) </a></p>
+          <p class="app-inverted"><a class="app-inverted" href="https://drive.google.com/file/d/18U8L1GQaju_jqevKaaZ9P6-QjkKulcOc/view?usp=sharing" target="_blank">Copy of the Notification letter (PDF) </a></p>
         </div>
       </div>
 
