@@ -37,16 +37,22 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    {{ govukBackLink({
-      text: "Back",
-      href: "task-list"
-    }) }}
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Send the partnership an email confirmation of inspection</h1>
+    </div>
+
 
     <div class="govuk-grid-column-two-thirds">
        <form action="task-list" method="post" class="form">
           <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-                <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+                <h1 class="govuk-heading-m govuk-!-margin-bottom-5">
                   You are about to send notification email to:
                 </h1>
               </legend>
