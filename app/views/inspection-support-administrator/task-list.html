@@ -53,11 +53,21 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="ITE-call-to-notify-provider">
-                  Call the ITE partnership to notify about the inspection
+                <a href="isa-call-to-ite">
+                  Call the ITE partnership to notify them of the inspection
                 </a>
               </span>
-              {% if data["isaCalledThePartnership"] %}
+              {% if data["IsaCallHeld"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="review-confirm-provider-key-information">
+                  Review and confirm the partnership's key information
+                </a>
+              </span>
+              {% if data["IsaReviewedConfirmedDetails"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
