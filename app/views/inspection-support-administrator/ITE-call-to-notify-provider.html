@@ -93,15 +93,26 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            Oakthorpe Primary School<br>
-            Tile Kiln Lane,<br>
-            Palmers Green,<br>
-            London,<br>
-            N13 6BY
+            {{data["address-line-1"]}}
+            {% if not data["address-line-1"] %}
+              Oakthorpe Primary School<br>
+              Tile Kiln Lane,<br>
+              Palmers Green,<br>
+              London,<br>
+              N13 6BY
+            {% endif %}
+            {{data["address-line-2"]}}
+            <br>
+            {{data["address-town"]}}
+            <br>
+            {{data["address-county"]}}
+            <br>
+            {{data["address-postcode"]}}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="providers-address">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Partnership's new address</span>
             </a>
           </dd>
         </div>
@@ -110,11 +121,14 @@
             Responsible person
           </dt>
           <dd class="govuk-summary-list__value">
-            Isabella Mora, Programme Leader
+            {{data["responsible-person-detail"]}}
+            {% if not data["responsible-person-detail"] %}
+              Isabella Mora, Programme Leader
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="responsible-person">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Responsible person</span>
             </a>
           </dd>
         </div>
@@ -123,11 +137,14 @@
             Responsible person's telephone number
           </dt>
           <dd class="govuk-summary-list__value">
-            07999335903
+            {{data["responsible-person-number"]}}
+            {% if not data["responsible-person-number"] %}
+              07999335903
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="responsible-person-number">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Responsible person's number</span>
             </a>
           </dd>
         </div>
@@ -136,24 +153,30 @@
             Responsible person's email address
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="mailto:i.mora@2schoolsconsortium.org">i.mora@2schoolsconsortium.org</a>
+            <a href="mailto:{{data["responsible-person-email-address"]}}">{{data["responsible-person-email-address"]}}</a>
+            {% if not data["responsible-person-email-address"] %}
+              <a href="mailto:i.mora@2schoolsconsortium.org">i.mora@2schoolsconsortium.org</a>
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="responsible-person-email-address">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Responsible person's email address</span>
             </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Provider's telephone number
+              Provider's telephone number
           </dt>
           <dd class="govuk-summary-list__value">
-            020 8807 6906
+            {{data["partnership-new-phone-number"]}}
+            {% if not data["partnership-new-phone-number"] %}
+              020 8807 6906
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="provider-number">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Partnerships new phone number</span>
             </a>
           </dd>
         </div>
@@ -162,7 +185,10 @@
             Provider's email address
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="mailto:info@2schoolsconsortium.org">info@2schoolconsortium.org</a>
+            <a href="mailto:{{data["partnerships-new-email-address"]}}">{{data["partnerships-new-email-address"]}}</a>
+            {% if not data["partnerships-new-email-address"] %}
+              <a href="mailto:info@2schoolsconsortium.org">info@2schoolconsortium.org</a>
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="providers-email-address">
@@ -172,14 +198,17 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Number of trainees
+              Number of trainees
           </dt>
           <dd class="govuk-summary-list__value">
-            14
+            {{data["updated-number-of-trainees"]}}
+            {% if not data["updated-number-of-trainees"] %}
+              14
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="number-of-trainees">
-              Change<span class="govuk-visually-hidden"> contact information</span>
+              Change<span class="govuk-visually-hidden">Updated number of trainees</span>
             </a>
           </dd>
         </div>
