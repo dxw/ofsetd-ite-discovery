@@ -46,31 +46,26 @@
 
     </div>
 
-
-    <div class="govuk-grid-column-two-thirds">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h2 class="govuk-fieldset__heading">
-            Partnership's new phone number
-          </h2>
-        </legend>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="provider-nummber">
-            Enter the new phone number that you get on the phone call
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="provider-number" name="responsible-person" type="text">
-        </div>
-
-      </fieldset>
-      <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
-          {{ govukButton({
-            text: "Save and continue"
-          }) }}
-
-        </form>
-
-    </div>
-
+    <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
+      <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-fieldset__heading">
+              Partnership's new phone number
+            </h2>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="provider-nummber">
+              Enter the new phone number that you get on the phone call
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="partnership-new-phone-number" name="partnership-new-phone-number" type="number" min="10">
+          </div>
+        </fieldset>
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+      </div>
+    </form>
   </div>
 
 {% endblock %}

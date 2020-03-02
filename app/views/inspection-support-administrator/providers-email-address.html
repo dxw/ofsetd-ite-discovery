@@ -39,38 +39,30 @@
         text: "Back",
         href: "ITE-call-to-notify-provider"
       }) }}
-
       {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
         <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
       {% endif %}
-
     </div>
-
-
-    <div class="govuk-grid-column-two-thirds">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h2 class="govuk-fieldset__heading">
-            Partnership's new email address
-          </h2>
-        </legend>
-        <div class="govuk-form-group">
-          <label class="govuk-label" for="provider-email">
-            Enter the new email address you get on the phone call
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" id="provider-email" name="responsible-person" type="text">
-        </div>
-
-      </fieldset>
-      <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
-          {{ govukButton({
-            text: "Save and continue"
-          }) }}
-
-        </form>
-
-    </div>
-
+    <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
+      <div class="govuk-grid-column-two-thirds">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h2 class="govuk-fieldset__heading">
+              Partnership's new email address
+            </h2>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="partnerships-new-email-address">
+              Enter the new email address you get on the phone call
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="partnerships-new-email-address" name="partnerships-new-email-address" type="email">
+          </div>
+        </fieldset>
+            {{ govukButton({
+              text: "Save and continue"
+            }) }}
+      </div>
+    </form>
   </div>
 
 {% endblock %}
