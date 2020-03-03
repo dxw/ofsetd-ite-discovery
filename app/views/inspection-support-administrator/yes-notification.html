@@ -56,7 +56,10 @@
                     Responsible Person
                   </dt>
                   <dd class="govuk-summary-list__value">
-                  i.mora@2schoolsconsortium.org
+                  {{data["responsible-person-email-address"]}}</a>
+            {% if not data["responsible-person-email-address"] %}
+              <a href="mailto:i.mora@2schoolsconsortium.org">i.mora@2schoolsconsortium.org</a>
+            {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="responsible-person-email-address">
@@ -69,7 +72,10 @@
                     Provider
                   </dt>
                   <dd class="govuk-summary-list__value">
-                  info@2schoolconsortium.org
+                  {{data["partnerships-new-email-address"]}}</a>
+            {% if not data["partnerships-new-email-address"] %}
+              <a href="mailto:info@2schoolsconsortium.org">info@2schoolconsortium.org</a>
+            {% endif %}
                   </dd>
                   <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="providers-address">
