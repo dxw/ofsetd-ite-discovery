@@ -1,0 +1,99 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your dashboard - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Your dashboard
+      </h1>
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        caption: "Upcoming inspections",
+        captionClasses: "govuk-heading-l",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Inspection Number"
+          },
+          {
+            text: "Date of Inspection"
+          },
+          {
+            text: "ITE Partnership"
+          },
+          {
+            text: "Lead Inspector"
+          },
+          {
+            text: "Current inspection stage"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='task-list'>12345</a>"
+            },
+            {
+              text: "9-12 Mar"
+            },
+            {
+              text: "2Schools Consortium"
+            },
+            {
+              text: "Sarah Philips, HMI"
+            },
+            {
+              text: "Pre-inspection"
+            }
+          ],
+          [
+            {
+              html: "<p>27593</p>"
+            },
+            {
+              text: "30 Mar-2 Apr"
+            },
+            {
+              text: "Bishop Grosseteste University"
+            },
+            {
+              text: "Gaz Aston, OI"
+            },
+            {
+              text: "Not started"
+            }
+          ],
+          [
+            {
+              html: "<p>28573</p>"
+            },
+            {
+              text: "20-23 Apr"
+            },
+            {
+              text: "Bradford College"
+            },
+            {
+              text: "Hilary Chan, HMI"
+            },
+            {
+              text: "Not started"
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+</div>
+
+{% endblock %}
