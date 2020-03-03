@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% if data["uploadDraftInspectionReportForQa"] %}
+  <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
+{% endif %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block pageTitle %}
+  Inspection no. 12345 - 2Schools Consortium - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
+        <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">Rejected factual accuracy comments</h1>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    </div>
+
+    <form action="review-fac" method="post" class="form govuk-!-padding-top-7">
+      <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <div class="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="rejected-2" name="rejected-2" type="checkbox" value="Rejected" {{ checked("rejected-2","Rejected") }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="fac-reject">
+                    Rejected
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        <h2 class="govuk-heading-m">Reasons for rejection</h2>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="fac-rejected-detail-2">
+              <strong>Comments</strong>
+            </label>
+             <span id="fac-rejected-detail-2" class="govuk-hint">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            </span>
+            <textarea class="govuk-textarea" id="fac-rejected-detail-2" name="fac-rejected-detail-2" rows="5" aria-describedby="fac-rejected-detail"></textarea>
+              {{ govukButton({
+                text: "Save and continue",
+                classes: "govuk-!-margin-top-7"
+              }) }}
+          </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

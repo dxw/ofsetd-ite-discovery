@@ -177,10 +177,13 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="review-and-resolve" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
+                <a href="review-fac" aria-describedby="factual-accuracy-comments-reviewed-and-resolved">
                   Review and resolve the partnership's factual accuracy comments
                 </a>
               </span>
+              {% if data["uploadPreinspectionMaterials"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>

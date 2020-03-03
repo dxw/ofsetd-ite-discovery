@@ -1,0 +1,146 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your dashboard - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
+        <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
+      {% endif %}
+
+      <h1 class="govuk-heading-xl">
+        Review and resolve the partnership's factual accuracy comments
+      </h1>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+      {{ govukTable({
+        caption: "",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Provider Name"
+          },
+          {
+            text: "File Name"
+          },
+          {
+            text: "Date"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "2Schools Consortiumy"
+            },
+            {
+              html: "<a href='12345'>2Schools Consortium Document (PDF)</a>"
+            },
+            {
+              text: " 2 March 2020"
+            }
+          ]
+        ]
+      }) }}
+    </div>
+
+    <div class="govuk-grid-column-full govuk-!-margin-top-9">
+      {% if data["uploadDraftInspectionReportForQa"] %}
+        <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Inspection 12345: Respond to comments received after quality assurance</a></p>
+      {% endif %}
+
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        caption: "Review and resolve the factual accuracy comments",
+        captionClasses: "govuk-heading-m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Page Number"
+          },
+          {
+            text: "Paragraph number"
+          },
+          {
+            text: "Details of concern"
+          },
+          {
+            text: "Review"
+          },
+          {
+            text: "Rejection details"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "18"
+            },
+            {
+              text: "6"
+            },
+            {
+              text: "Typo in line eg. 'To make information easier compare and scan for users'"
+            },
+            {
+              html: "<div id='accept'><a id='accept'>Accept</a></div><a href='review-fac-rejected'>Reject</a>"
+            },
+            {
+              attributes: "{{data['fac-rejected-detail']}}"
+            }
+          ],
+          [
+            {
+              text: "20"
+            },
+            {
+              text: "10"
+            },
+            {
+              text: "Incorrect link reference, replace with 'www.bcu.com'"
+            },
+            {
+              html: "<a class='disabled-fac' href='review-fac'>Accept</a><br><strong>Rejected</strong>"
+            },
+            {
+              attributes: "{{data['fac-rejected-detail-2']}}"
+            }
+          ],
+          [
+            {
+              text: "25"
+            },
+            {
+              text: "13"
+            },
+            {
+              text: "Nunc non nisl sit amet mauris tincidunt gravida. Donec in est at arcu dictum suscipit nec eu enim"
+            },
+            {
+              html: "<div id='accept-3'><a id='accept-3'>Accept</a></div><a href='review-fac-rejected-3'>Reject</a>"
+            },
+            {
+              attributes: "{{data['fac-rejected-detail-3']}}"
+            }
+          ]
+        ]
+      }) }}
+
+
+    </div>
+</div>
+
+{% endblock %}
