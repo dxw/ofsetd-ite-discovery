@@ -21,10 +21,18 @@
     },
     {
       text: "Manage your Ofsted inspections",
-      href: "dashboard"
+      href: "isa-dashboard"
     },
     {
-      text: "12345"
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Review and confirm",
+      href: "review-confirm-provider-key-information"
+    },
+    {
+      text: "Change responsible person name"
     }
     ]
   }) }}
@@ -37,7 +45,7 @@
     <div class="govuk-grid-column-full">
       {{ govukBackLink({
         text: "Back",
-        href: "ITE-call-to-notify-provider"
+        href: "review-confirm-provider-key-information"
       }) }}
 
       {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
@@ -46,7 +54,7 @@
 
     </div>
 
-    <form action="ITE-call-to-notify-provider" method="post" class="form govuk-!-padding-top-7">
+    <form action="review-confirm-provider-key-information" method="post" class="form govuk-!-padding-top-7">
         <div class="govuk-grid-column-two-thirds">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">

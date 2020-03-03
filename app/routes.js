@@ -22,9 +22,9 @@ router.post('/lead-inspector/planning-call', function (req, res) {
 router.post('/inspection-support-administrator/email-notification', function (req, res) {
   let emailNotification = req.session.data['emailNotification'];
   if (emailNotification === "yes") {
-    res.redirect("/inspection-support-administrator/yes-notification");
+    res.redirect("/inspection-support-administrator/yes-letter-preview");
   } else {
-    res.redirect("/inspection-support-administrator/no-notification");
+    res.redirect("/inspection-support-administrator/no-letter-preview");
   }
 
 })

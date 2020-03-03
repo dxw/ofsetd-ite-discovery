@@ -1,0 +1,79 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "isa-dashboard"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Send notification letter to provider",
+      href: "email-notification"
+    },
+    {
+      text: "Preview notification letter"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: "email-notification"
+      }) }}
+      <h1 class="govuk-heading-xl">Preview the inspection notification letter</h1>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          Your inspection notification letter has already been formatted, you do not have to change anything. You can still preview the letter with the link below.
+        </strong>
+      </div>
+      <div class=govuk-grid-column-two-thirds">
+          <p><a href="https://drive.google.com/file/d/18U8L1GQaju_jqevKaaZ9P6-QjkKulcOc/view?usp=sharing">Notification letter (PDF) </a></p>
+      </div>
+
+
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+
+        {{ govukButton({
+          text: "Continue",
+          href: "yes-notification",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+
+    </div><!-- end of column one -->
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "isa-dashboard"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Notification call"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+      <h1 class="govuk-heading-xl">Call the ITE partnership to notify them of the inspection</h1>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>You should now call the ITE partnership to notify them of the upcoming inspection.</p>
+      <p>In addition to notifying them of the inspection, you need to ask about the information listed below on the call:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the partnership’s address</li>
+        <li>the name, surname and job title of the responsible person</li>
+        <li>the phone number and email address of the responsible person</li>
+        <li>the number of trainees they have on the roll</li>
+        <li>whether they are asking for a deferral or a cancellation of the inspection</li>
+      </ul>
+      <p>You can also use <a href="https://drive.google.com/open?id=1Cn859wMQAm_sJ0WMdJUrj0WIWuOIXT6D">this list of prompts on the call.</a></p>
+      <p>When you are ready, you can call the partnership on 020 8807 6906.</p>
+
+
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+
+        {{ govukCheckboxes({
+          idPrefix: "IsaCallHeld",
+          name: "IsaCallHeld",
+          items: [
+          {
+            value: true,
+            text: "Mark task as completed",
+            checked: checked("IsaCallHeld", "true")
+          }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+
+    </div><!-- end of column one -->
+
+  </div>
+
+{% endblock %}

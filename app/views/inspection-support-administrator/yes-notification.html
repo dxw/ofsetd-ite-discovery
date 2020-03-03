@@ -17,18 +17,14 @@
     },
     {
       text: "Manage your Ofsted inspections",
-      href: "dashboard"
-    },
-    {
-      text: "12345",
-      href: "12345"
+      href: "isa-dashboard"
     },
     {
       text: "Inspection activities",
       href: "task-list"
     },
     {
-      text: "Upload draft inspection report for QA"
+      text: "Send notification letter after contact"
     }
     ]
   }) }}
@@ -41,7 +37,7 @@
 
       {{ govukBackLink({
         text: "Back",
-        href: "email-notification"
+        href: "yes-letter-preview"
       }) }}
 
       <h1 class="govuk-heading-xl">Send the confirmation letter for an inspection</h1>
@@ -54,36 +50,66 @@
                   You are about to send the notification letter to:
                 </h1>
               </legend>
-              <table class="govuk-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Who</th>
-                    <th scope="col" class="govuk-table__header">Email address</th>
-                  </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Responsible person</th>
-                    <td class="govuk-table__cell">i.mora@2schoolsconsortium.org</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Provider</th>
-                    <td class="govuk-table__cell">info@2schoolconsortium.org</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Dept. for Education</th>
-                    <td class="govuk-table__cell">itt.ofstedliaison@education.gsi.gov.uk performance.team@education.gsi.gov.uk</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Lead Inspector (bcc)</th>
-                    <td class="govuk-table__cell">sarah.philips@ofsted.gov.uk</td>
-                  </tr>
-                  <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Ofsted inspection planning (bcc)</th>
-                    <td class="govuk-table__cell">inspection.planning@ofsted.gov.uk</td>
-                  </tr>
-                </tbody>
-              </table>
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Responsible Person
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                  {{data["responsible-person-email-address"]}}</a>
+            {% if not data["responsible-person-email-address"] %}
+              <a href="mailto:i.mora@2schoolsconsortium.org">i.mora@2schoolsconsortium.org</a>
+            {% endif %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="responsible-person-email-address">
+                      Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Provider
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                  {{data["partnerships-new-email-address"]}}</a>
+            {% if not data["partnerships-new-email-address"] %}
+              <a href="mailto:info@2schoolsconsortium.org">info@2schoolconsortium.org</a>
+            {% endif %}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="providers-address">
+                      Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    DfE
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                  itt.ofstedliaison@education.gsi.gov.uk performance.team@education.gsi.gov.uk
+                  </dd>
+                  <dd class="govuk-summary-list__actions"> </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Lead Inspector
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                  sarah.philips@ofsted.gov.uk
+                  </dd>
+                  <dd class="govuk-summary-list__actions"> </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Ofsted inspection planning (bcc)
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                  inspection.planning@ofsted.gov.uk
+                  </dd>
+                  <dd class="govuk-summary-list__actions"> </dd>
+                </div>
             </fieldset>
           <fieldset class="govuk-fieldset govuk-!-margin-top-7">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -117,16 +143,6 @@
           classes: "govuk-!-margin-right-1"
         }) }}
       </form>
-    </div>
-    <div class="govuk-grid-column-one-third">
-      <div class="govuk-panel govuk-panel--side app-inverted">
-        <div class="govuk-form-group">
-          <h2 class="govuk-heading-m app-inverted">Preview of Notification letter</h2>
-          <p class="app-inverted"><a class="app-inverted" href="https://drive.google.com/file/d/18U8L1GQaju_jqevKaaZ9P6-QjkKulcOc/view?usp=sharing" target="_blank">Copy of the Notification letter (PDF) </a></p>
-        </div>
-      </div>
-
-
     </div>
 
   </div>
