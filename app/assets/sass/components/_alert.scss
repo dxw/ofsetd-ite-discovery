@@ -10,3 +10,13 @@
     }
   }
 }
+
+//greyed out link
+
+#accept, #accept-2, #accept-3 {
+  text-decoration: underline;
+  display: block !important;
+  &.accepted-active{
+    font-weight: bold;
+  }
+}

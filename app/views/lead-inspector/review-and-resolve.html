@@ -50,35 +50,74 @@
 
     </div>
 
+
     <div class="govuk-grid-column-two-thirds">
 
       <div class="response">
         <span class="govuk-caption-m">20 February 2020</span>
         <h2 class="govuk-heading-m">Response #1</h2>
-        <p class="govuk-body-s">This response is to <a href="#" class="govuk-link">version 1 of the report</a></p>
-        <p class="govuk-body">There are three typos in the document. The Partnership's name is 2Consortium, and the report spells it as 2Consortuim on pages 3,4 and 5.</p>
+        <p class="govuk-body-s">This response is to <a href="#" class="govuk-link">Version 1; 2Schools Consortium Report (PDF)</a></p>
 
-        <h2 class="govuk-heading-s">Upload an amended version of the report</h2>
-        <form action="task-list" method="post" class="form">
-
-          {{ govukFileUpload({
-            id: "uploadAmendedReport",
-            name: "uploadAmendedReport",
-            label: {
-              text: ""
-            }
+        {% from "govuk/components/table/macro.njk" import govukTable %}
+          {{ govukTable({
+            caption: "",
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: "Accepted comments"
+              },
+              {
+                text: "Rejected comments"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "2"
+                },
+                {
+                  text: "1"
+                }
+              ]
+            ]
           }) }}
-
-          {{ govukButton({
-            text: "Upload the amended report"
-          }) }}
-
-        </form>
-
       </div>
+    </div>
 
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Upload an amended version of the report</h2>
+      <form action="task-list" method="post" class="form">
+        {{ govukFileUpload({
+          id: "uploadAmendedReport",
+          name: "uploadAmendedReport",
+          label: {
+            text: ""
+          }
+        }) }}
+        {{ govukButton({
+          text: "Upload document",
+          classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+        }) }}
 
+        <hr class="separator">
 
+        {{ govukCheckboxes({
+          idPrefix: "uploadPreinspectionMaterials",
+          name: "uploadPreinspectionMaterials",
+          classes: "govuk-!-margin-top-7",
+          items: [
+          {
+            value: true,
+            text: "Mark task as completed",
+            checked: checked("readPreInspectionMaterials", "true")
+          }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Save and continue",
+          classes: "govuk-!-margin-top-2"
+        }) }}
+      </form>
     </div>
 
   </div>
