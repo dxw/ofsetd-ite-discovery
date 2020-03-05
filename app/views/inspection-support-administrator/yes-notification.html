@@ -43,7 +43,7 @@
       <h1 class="govuk-heading-xl">Send the confirmation letter for an inspection</h1>
     </div>
     <div class="govuk-grid-column-two-thirds">
-       <form action="task-list" method="post" class="form">
+       <form action="send-info-confirm" method="post" class="form">
           <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                 <h1 class="govuk-heading-m govuk-!-margin-bottom-5">
@@ -125,21 +125,8 @@
             </div>
 
           </fieldset>
-
-        {{ govukCheckboxes({
-          idPrefix: "emailNotification",
-          name: "emailNotification",
-          items: [
-          {
-            value: true,
-            text: "Mark task as completed",
-            checked: checked("remailNotification", "true")
-          }
-          ]
-        }) }}
-
         {{ govukButton({
-          text: "Submit and Continue",
+          text: "Save and Continue",
           classes: "govuk-!-margin-right-1"
         }) }}
       </form>
