@@ -1,27 +1,21 @@
-
+{% from "govuk/components/table/macro.njk" import govukTable %}
 {% extends "layout.html" %}
-
 {% block pageTitle %}
   Your dashboard - {{ serviceName }}
 {% endblock %}
-
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       {{ govukBackLink({
         text: "Back",
         href: "task-list"
       }) }}
-
       {% if (data["uploadDraftInspectionReportForQa"] | length > 1) and (data["comment-1"] | length < 1)  %}
         <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Respond to comments received after quality assurance</a></p>
       {% endif %}
-
       <h1 class="govuk-heading-xl">
         Review and resolve the partnership's factual accuracy comments
       </h1>
-
     </div>
     <div class="govuk-grid-column-two-thirds">
       {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -54,83 +48,91 @@
         ]
       }) }}
     </div>
-
     <div class="govuk-grid-column-full govuk-!-margin-top-9">
       {% if data["uploadDraftInspectionReportForQa"] %}
         <p class="alert"><strong>ACTION REQUIRED:</strong> <a href="respond-to-comments">Inspection 12345: Respond to comments received after quality assurance</a></p>
       {% endif %}
-
         <form action="review-and-resolve" method="post">
-        <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-heading-m">Review and resolve the factual accuracy comments</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Page Number</th>
-                <th scope="col" class="govuk-table__header">Paragraph number</th>
-                <th scope="col" class="govuk-table__header">Details of concern</th>
-                <th scope="col" class="govuk-table__header">Review</th>
-                <th scope="col" class="govuk-table__header">Rejection reason</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">18</th>
-                  <td class="govuk-table__cell">6</td>
-                  <td class="govuk-table__cell">Typo in line eg. 'To make information easier compare and scan for users'</td>
-                  <td class="govuk-table__cell">
-                    {% if not data["rejected"]%}
-                    <div id="accept">Accept</div>
-                    {% endif %}
-                     {% if data["rejected"]%}<div>Accept</div>{% endif %}
-                    <strong><a href="review-fac-rejected">{{data["rejected"]}}</a></strong>
-                    {% if not data["rejected"]%}
-                    <a href="review-fac-rejected">
-                     Reject</a>{% endif %}
-                 </td>
-                  <td class="govuk-table__cell">{{data["fac-rejected-detail"]}}</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">20</th>
-                  <td class="govuk-table__cell">10</td>
-                  <td class="govuk-table__cell">Incorrect link reference, replace with 'www.bcu.com'</td>
-                  <td class="govuk-table__cell">
-                    {% if not data["rejected-2"]%}
-                    <div id="accept-2">Accept</div>
-                    {% endif %}
-                     {% if data["rejected-2"]%}<div>Accept</div>{% endif %}
-                    <strong><a href="review-fac-rejected-2">{{data["rejected-2"]}}</a></strong>
-                    {% if not data["rejected-2"]%}
-                    <a href="review-fac-rejected-2">
-                     Reject</a>{% endif %}
-                 </td>
-                  <td class="govuk-table__cell">{{data["fac-rejected-detail-2"]}}</td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">25</th>
-                  <td class="govuk-table__cell">13</td>
-                  <td class="govuk-table__cell">Nunc non nisl sit amet mauris tincidunt gravida. Donec in est at arcu dictum suscipit nec eu enim</td>
-                  <td class="govuk-table__cell">
-                    {% if not data["rejected-3"]%}
-                    <div id="accept-3">Accept</div>
-                    {% endif %}
-                     {% if data["rejected-3"]%}<div>Accept</div>{% endif %}
-                    <strong><a href="review-fac-rejected-3">{{data["rejected-3"]}}</a></strong>
-                    {% if not data["rejected-3"]%}
-                    <a href="review-fac-rejected-3">
-                     Reject</a>{% endif %}
-                 </td>
-                  <td class="govuk-table__cell">{{data["fac-rejected-detail-3"]}}</td>
-                </tr>
-            </tbody>
-          </table>
-
+        {{ govukTable({
+          caption: "Review and resolve the factual accuracy comments",
+          captionClasses: "govuk-heading-m",
+          firstCellIsHeader: true,
+          head: [
+            {
+              text: "Page Number"
+            },
+            {
+              text: "Paragraph number"
+            },
+            {
+              text: "Details of concern"
+            },
+            {
+              text: "Review"
+            },
+            {
+              text: "Rejection details"
+            }
+          ],
+          rows: [
+            [
+              {
+                text: "18"
+              },
+              {
+                text: "6"
+              },
+              {
+                text: "Typo in line eg. 'To make information easier compare and scan for users'"
+              },
+              {
+                html: "<div>Accept</div><strong><a href='review-fac-rejected'>Rejected</a></strong>" if data["fac-rejected-detail"] else "<div id='accept'>Accept</div><a href='review-fac-rejected'>Reject</a>"
+              },
+              {
+                text: data["fac-rejected-detail"]
+              }
+            ],
+            [
+              {
+                text: "20"
+              },
+              {
+                text: "10"
+              },
+              {
+                text: "Incorrect link reference, replace with 'www.bcu.com'"
+              },
+              {
+                html: "<div>Accept</div><strong><a href='review-fac-rejected-2'>Rejected</a></strong>" if data["fac-rejected-detail-2"] else "<div id='accept-2'>Accept</div><a href='review-fac-rejected-2'>Reject</a>"
+              },
+              {
+                text: data["fac-rejected-detail-2"]
+              }
+            ],
+            [
+              {
+                text: "25"
+              },
+              {
+                text: "13"
+              },
+              {
+                text: "Nunc non nisl sit amet mauris tincidunt gravida. Donec in est at arcu dictum suscipit nec eu enim"
+              },
+              {
+                html: "<div>Accept</div><strong><a href='review-fac-rejected-3'>Rejected</a></strong>" if data["fac-rejected-detail-3"] else "<div id='accept-3'>Accept</div><a href='review-fac-rejected-3'>Reject</a>"
+              },
+              {
+                text: data["fac-rejected-detail-3"]
+              }
+            ]
+          ]
+        }) }}
         {{ govukButton({
           text: "Continue",
           classes: "govuk-!-margin-top-2"
         }) }}
-
       </form>
     </div>
 </div>
-
 {% endblock %}
