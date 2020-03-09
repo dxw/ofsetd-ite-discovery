@@ -16,7 +16,7 @@
                 <h1 class="govuk-fieldset__heading app-inverted govuk-!-margin-bottom-5">
                   Are you sure this task is completed?
                 </h1>
-                <h2 class="govuk-heading-m app-inverted">The document will be sent to the following email Addresses: </h2>
+                <h2 class="govuk-heading-m app-inverted">The inspection notification letter will be sent to the following email addresses: </h2>
               </legend>
               <ul class="govuk-list govuk-list--bullet app-inverted">
                 <li>
@@ -30,11 +30,14 @@
                   {% if not data["partnerships-new-email-address"] %}info@2schoolconsortium.org
                   {% endif %}
                 </li>
-                <li>isratchoudhury@bcu.ac.uk</li>
+                <li>itt.ofstedliaison@education.gsi.gov.uk</li>
+                <li>performance.team@education.gsi.gov.uk</li>
+                <li>sarah.philips@ofsted.gov.uk</li>
+                <li>inspection.planning@ofsted.gov.uk (bcc)</li>
               </ul>
             </fieldset>
           </div>
-        <p class="govuk-body app-inverted"><a class="app-link--inverted" href="no-notification.html">Go back and add additional email Address</a></p>
+        <p class="govuk-body app-inverted"><a class="app-link--inverted" href="no-notification.html">Go back and add other email addresses</a></p>
       </div>
 
       {{ govukCheckboxes({
