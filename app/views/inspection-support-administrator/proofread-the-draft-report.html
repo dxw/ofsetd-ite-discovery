@@ -1,0 +1,107 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Pre-inspection materials - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "isa-dashboard"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Pre-inspection materials"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Proofread the draft report</h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Download the report</h2>
+      
+      <p>Please download and proofread the inspection report. You should check the report for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Track changes</li>
+        <li>Spelling and punctuation</li>
+        <li>Formatting</li>
+        <li>Naming conventions of the file</li>
+      </ul>
+
+      <h3>
+          <a class="govuk-link govuk-heading-m" href="#">Draft inspection report that can be downloaded</a>
+      </h3>
+      <p>When you have proofread the report and made any necessary changes, please upload a clean version below:</p>
+
+      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload a clean version</h1>
+
+      <form action="upload-pre-inspection-materials" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "planningDocUploaded",
+          name: "planningDocUploaded",
+          label: {
+            class: "classname",
+            text: ""
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Upload document",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </form>
+      <hr class="separator">
+      <form action="task-list" method="post" class="form govuk-!-padding-top-9">
+
+      {{ govukCheckboxes({
+        idPrefix: "uploadPreinspectionMaterials",
+        name: "uploadPreinspectionMaterials",
+        items: [
+        {
+          value: true,
+          text: "Mark task as completed",
+          checked: checked("readPreInspectionMaterials", "true")
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-top-2"
+      }) }}
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

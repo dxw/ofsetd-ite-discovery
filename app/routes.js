@@ -18,7 +18,7 @@ router.post('/lead-inspector/planning-call', function (req, res) {
     res.redirect('/lead-inspector/12345')
   }
 })
-
+//ISA 
 router.post('/inspection-support-administrator/email-notification', function (req, res) {
   let emailNotification = req.session.data['emailNotification'];
   if (emailNotification === "yes") {
@@ -28,7 +28,16 @@ router.post('/inspection-support-administrator/email-notification', function (re
   }
 
 })
+//ISA 
+router.post('/inspection-support-administrator/send-draft-report-factual-accuracy-check', function (req, res) {
+  let sendDraftFac = req.session.data['sendDraftFac'];
+  if (sendDraftFac === "Report") {
+    res.redirect("/inspection-support-administrator/report-preview");
+  } else {
+    res.redirect("/inspection-support-administrator/cover-letter-preview");
+  }
 
+})
 
 router.post('/lead-inspector/upload-planning-document', function (req, res) {
 
