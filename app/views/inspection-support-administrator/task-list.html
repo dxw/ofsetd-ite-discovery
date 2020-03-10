@@ -98,24 +98,41 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="send-draft-report-factual-accuracy-check">
-                  Send the draft report for factual accuracy check
+                  Upload draft report for factual accuracy check
+                </a>
+              </span>
+              {% if data["uploadDraftFac"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="cover-letter-preview">
+                  Preview and send factual accuracy check notification to the provider
                 </a>
               </span>
               {% if data["sendDraftFac"] %}
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="confirm-planning-call">
-                  Notify ITE Partnership of publication of inspection report
-                </a>
-              </span>
-              {% if data["xxxx"] %}
-                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
-              {% endif %}
-            </li>
           </ul>
+        <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> Publish final inspection report
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="send-final-report-provider">
+                    Send final report to the provider and publish to Ofsted
+                  </a>
+                </span>
+                {% if data["publishFinalReport"] %}
+                  <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+                {% endif %}
+              </li>
+            </ul>
+          </li>
         </li>
       </ol>
 

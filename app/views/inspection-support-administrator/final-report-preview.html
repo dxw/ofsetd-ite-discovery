@@ -41,9 +41,9 @@
     <div class="govuk-grid-column-two-thirds">
       {{ govukBackLink({
         text: "Back",
-        href: "send-draft-report-factual-accuracy-check"
+        href: "send-final-report-provider"
       }) }}
-      <h1 class="govuk-heading-xl">Preview the report for factual accuracy check</h1>
+      <h1 class="govuk-heading-xl">Publish final report to ofsted </h1>
     </div>
   </div>
 
@@ -54,19 +54,16 @@
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-warning-text__assistive">Warning</span>
-          Your report to the ITE Partnership has already been formatted. You do not have to change anything. You can preview the letter with the link below.
+          ITE Partnership will be notified to view the <a href="#">Ofsted website</a> after 5 working days
         </strong>
       </div>
       <div class=govuk-grid-column-two-thirds">
-          <p><a href="https://drive.google.com/drive/u/0/folders/1R4yGvn7cfTOo8SKwCi4LW9gdcWIbXcYB">Report pdf</a></p>
+          <p><a href="https://drive.google.com/drive/u/0/folders/1R4yGvn7cfTOo8SKwCi4LW9gdcWIbXcYB">View final inspection report</a></p>
       </div>
-
-
-      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
-
+      <form action="final-report-send-email" method="post" class="form govuk-!-padding-top-7">
         {{ govukButton({
-          text: "Continue",
-          href: "report-send-email",
+          text: "Publish and continue",
+          href: "final-report-send-email",
           classes: "govuk-!-margin-right-1"
         }) }}
 
