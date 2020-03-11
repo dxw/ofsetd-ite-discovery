@@ -92,13 +92,13 @@
       <form action="task-list" method="post" class="form govuk-!-padding-top-9">
 
       {{ govukCheckboxes({
-        idPrefix: "uploadPreinspectionMaterials",
-        name: "uploadPreinspectionMaterials",
+        idPrefix: "checkDraftFac",
+        name: "checkDraftFac",
         items: [
         {
           value: true,
           text: "Mark task as completed",
-          checked: checked("readPreInspectionMaterials", "true")
+          checked: checked("checkDraftFac", "true")
         }
         ]
       }) }}
