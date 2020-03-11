@@ -52,26 +52,26 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-m">Upload final inspection report</h1>
         <form action="upload-pre-inspection-materials" method="post" class="form">
-          {{ 
+          {{
             govukFileUpload({
               id: "planningDocUploaded",
               name: "planningDocUploaded",
               label: {
               text: ""
               }
-            }) 
+            })
         }}
-          {{ 
+          {{
             govukButton({
             text: "Upload document",
             classes: "govuk-button--secondary govuk-!-margin-bottom-9"
-            }) 
+            })
         }}
         </form>
         <hr class="separator">
         <form action="final-report-preview" method="post" class="form">
           {{ govukButton({
-            text: "Save and continue",
+            text: "Send the final report for publication",
             classes: "govuk-!-margin-top-3"
           }) }}
 

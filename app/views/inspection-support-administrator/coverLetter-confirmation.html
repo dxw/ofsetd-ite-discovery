@@ -19,7 +19,8 @@
                  <h2 class="govuk-heading-m app-inverted">The cover letter has been sent to {{data["responsible-person-email-address"]}}
                 {% if not data["responsible-person-email-address"] %}
                   i.mora@2schoolsconsortium.org
-                {% endif %} at 2schoolsconsortium</h2>
+                {% endif %}.
+                The draft inspection report has been uploaded to the Provider Portal.</h2>
                   </legend>
             </fieldset>
           </div>
@@ -40,7 +41,7 @@
       }) }}
 
       {{ govukButton({
-        text: "Submit and continue",
+        text: "Continue",
         classes: "govuk-button"
       }) }}
      </form>
