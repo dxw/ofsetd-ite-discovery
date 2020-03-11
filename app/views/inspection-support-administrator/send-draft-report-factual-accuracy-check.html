@@ -1,0 +1,80 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Upload your planning document - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Send email notification to provider"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Send the draft report for factual accuracy check</h1>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p>You can now send the clean version of the draft inspection report can to the ITE partnership, so that they can run a factual accuracy check on it.</p>
+      <p>By completing this step, you will be sending the draft inspection report to the Provider Portal where the ITE partnership can access it securely.</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="#">2School Consortium Draft Inspection Report for FAC (pdf)</a>
+      </ul>
+        <form action="task-list" method="post" class="form govuk-!-padding-top-9">
+          {{ govukCheckboxes({
+            idPrefix: "uploadDraftFac",
+            name: "uploadDraftFac",
+            items: [
+            {
+              value: true,
+              text: "Mark task as completed",
+              checked: checked("readPreInspectionMaterials", "true")
+            }
+            ]
+          }) }}
+
+          {{ govukButton({
+            text: "Save and continue",
+            classes: "govuk-!-margin-top-2"
+          }) }}
+
+        </form>
+      </div>
+
+{% endblock %}
