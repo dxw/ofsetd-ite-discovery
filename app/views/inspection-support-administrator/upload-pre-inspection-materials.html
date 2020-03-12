@@ -43,16 +43,41 @@
 
       <h1 class="govuk-heading-xl">Upload pre-inspection materials</h1>
     </div>
+     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-3">
+       
+        <h2 class="govuk-heading-l" id="subsection-title">
+          Generic pre-inspection materials
+        </h2>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You do not need to add any more generic materials, they are already here.
+          </strong>
+        </div>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Sample joining instructions and team briefing</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="">Deferral policy</a>
+            </li>
+            <li>
+              <a class="govuk-link" href="">Evidence form for ITE inspections</a>
+            </li>
+          </ul>
+      </div>
 
     <div class="govuk-grid-column-two-thirds">
-
-      <h2 class="govuk-heading-l">Materials specific to 2Schools Consortium</h2>
-      <ul class="govuk-list govuk-list--bullet">
+      <hr class="separator">
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Materials specific to 2Schools Consortium</h2>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
         <li>
           <a class="govuk-link" href="https://ofsted365.sharepoint.com/sites/IN0126/Data Acquisition and Planning/Forms/AllItems.aspx?id=%2Fsites%2FIN0126%2FData%20Acquisition%20and%20Planning%2FPlanning%2FNCTL%20Evaluation%20Reports">DfE 2016-2017 Master Evaluation Report (via Sharepoint)</a>
       </ul>
-
-      <h1 class="govuk-heading-m govuk-!-padding-top-7">Upload more provider specific documents</h1>
 
       <form action="upload-pre-inspection-materials" method="post" class="form">
 
@@ -70,7 +95,6 @@
         }) }}
 
       </form>
-      <hr class="separator">
       <form action="task-list" method="post" class="form govuk-!-padding-top-9">
 
       {{ govukCheckboxes({
@@ -91,30 +115,6 @@
       }) }}
 
     </form>
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-      <aside role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Generic pre-inspection materials
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-list--bullet">
-            <li>
-              <a class="govuk-link" href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">Guidance on how to select a sample of trainees to observe</a>
-            </li>
-            <li>
-              <a class="govuk-link" href="https://drive.google.com/open?id=1DxEY_yvWjqVeYkoomEY3JR2ZDx2pnAbZ">Sample joining instructions and team briefing</a>
-            </li>
-            <li>
-              <a class="govuk-link" href="">Deferral policy</a>
-            </li>
-            <li>
-              <a class="govuk-link" href="">Evidence form for ITE inspections</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
     </div>
 
   </div>
