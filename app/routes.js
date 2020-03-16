@@ -29,6 +29,18 @@ router.post('/inspection-support-administrator/email-notification', function (re
 
 })
 
+router.post('/inspection-support-administrator/send-draft-report-factual-intro', function (req, res) {
+  let sendReportIntro = req.session.data['sendReportIntro'];
+  if (sendReportIntro === "yes") {
+    res.redirect("/inspection-support-administrator/cover-letter-preview");
+  } else {
+    res.redirect("/inspection-support-administrator/call-provider-report-fac");
+  }
+
+})
+
+
+
 router.post('/lead-inspector/upload-planning-document', function (req, res) {
 
   notify.sendEmail(

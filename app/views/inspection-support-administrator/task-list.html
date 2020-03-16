@@ -95,9 +95,19 @@
                 <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
               {% endif %}
             </li>
+             <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="call-provider-report-fac">
+                  Call the provider to notify them before uploading draft report
+                </a>
+              </span>
+              {% if data["callDraftFac"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="cover-letter-preview">
+                <a href="send-draft-report-factual-intro">
                   Send the draft report to provider portal and notify the partnership with a cover letter
                 </a>
               </span>
