@@ -1,0 +1,100 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% block pageTitle %}
+  Pre-inspection materials - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "isa-dashboard"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Pre-inspection materials"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+
+      <h1 class="govuk-heading-xl">Upload evidence form day 1</h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-m">Upload documents</h1>
+
+      <form action="upload-pre-inspection-materials" method="post" class="form">
+
+        {{ govukFileUpload({
+          id: "planningDocUploaded",
+          name: "planningDocUploaded",
+          label: {
+            text: ""
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Upload document",
+          classes: "govuk-button--secondary"
+        }) }}
+
+      </form>
+      <hr class="separator">
+      <form action="task-list" method="post" class="form govuk-!-padding-top-9">
+
+      {{ govukCheckboxes({
+        idPrefix: "upload-evidence-form1",
+        name: "upload-evidence-form1",
+        items: [
+        {
+          value: true,
+          text: "Mark task as completed",
+          checked: checked("upload-evidence-form1", "true")
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue",
+        classes: "govuk-!-margin-top-2"
+      }) }}
+
+    </form>
+    </div><!-- end of column one -->
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Supporting information</h2>
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="https://drive.google.com/file/d/1Cn859wMQAm_sJ0WMdJUrj0WIWuOIXT6D/view?usp=sharing">Prompts for the phone call with the provider</a>
+        </li>
+      </ul>
+    </div><!-- end of column two -->
+
+  </div>
+
+{% endblock %}

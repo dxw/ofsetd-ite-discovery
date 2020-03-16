@@ -109,17 +109,23 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="daily-evidence-forms-uploaded">
+                <a href="upload-evidence-form-1" aria-describedby="daily-evidence-forms-uploaded">
                   Upload evidence form day 1
                 </a>
               </span>
+              {% if data["upload-evidence-form1"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="daily-evidence-form-uploaded-2">
+                <a href="upload-evidence-form-2" aria-describedby="daily-evidence-form-uploaded-2">
                   Upload evidence form day 2
                 </a>
               </span>
+              {% if data["upload-evidence-form2"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
