@@ -81,6 +81,16 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
+                <a href="prepare-the-inspection-plan">
+                  Prepare the inspection plan
+                </a>
+              </span>
+              {% if data["planCreated"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="company-information-completed">Completed</strong>
+              {% endif %}
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
                 <a href="upload-planning-document">
                   Send planning document to the provider
                 </a>
@@ -129,10 +139,13 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#" aria-describedby="ROV-completed">
+                <a href="complete-rov-end-of-inspection" aria-describedby="ROV-completed">
                   Complete the record of visit form at the end of the inspection
                 </a>
               </span>
+              {% if data["finalRovSent"] %}
+                <strong class="govuk-tag app-task-list__task-completed" id="send-information-to-team-members-completed">Completed</strong>
+              {% endif %}
             </li>
           </ul>
         </li>
