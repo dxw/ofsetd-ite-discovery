@@ -1,0 +1,80 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Prepare the inspection plan"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: "task-list"
+      }) }}
+      <h1 class="govuk-heading-xl">Prepare the inspection plan</h1>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>The ITE partnerships work with different education settings where trainees practice their teaching. As part of the ITE inspections, inspectors observe trainees in these settings.</p>
+      <p>As there might be various locations for the inspection team to visit, the Lead Inspector is responsible for putting together a plan for the team to follow throughout the inspection. </p>
+      <p>When creating this plan, the Lead Inspector has to bear in mind the following conditions:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Are there limitations that might prevent any inspectors from going into any of the education settings this ITE partnership works with?</li>
+        <li>How can I select a sample of trainees to observe that is representative of their traineeship routes and their specialist phases?</li>
+        <li>What's the best route for the inspection team to follow to make those visits?</li>
+      </ul>
+      <p>You can also use <a href="https://drive.google.com/open?id=17nIvjB-No3mcq92vEPxRD_uRR_Vspcxl">this guidance when you select your sample trainees.</a></p>
+
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+
+
+        {{ govukButton({
+          text: "Next step",
+          href: "check-limitations-for-ITE-visits",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+
+    </div><!-- end of column one -->
+
+  </div>
+
+{% endblock %}

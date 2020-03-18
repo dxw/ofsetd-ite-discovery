@@ -1,0 +1,98 @@
+
+{% extends "layout.html" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+    {
+      text: "Home",
+      href: "#"
+    },
+    {
+      text: "Manage your Ofsted inspections",
+      href: "dashboard"
+    },
+    {
+      text: "12345",
+      href: "12345"
+    },
+    {
+      text: "Inspection activities",
+      href: "task-list"
+    },
+    {
+      text: "Prepare the inspection plan"
+    }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukBackLink({
+        text: "Back",
+        href: "prepare-the-inspection-plan"
+      }) }}
+      <h1 class="govuk-heading-xl">Check if the inspection team can go to an education setting</h1>
+    </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>There are various reasons why the inspection team might not be able to go to an education setting that the ITE partnership works with.</p>
+      <p>For example, that specific school has recently been inspected, or will be inspected soon in its own right under the EIF framework. It might then be confusing for the school to have Ofsted inspectors under a different inspection remit.</p>
+      <p>That is why the Lead Inspector should check with Ofsted Data and Insight team to make sure there are no such restrictions.</p>
+      <p>In order to do that, you should email <a href="dataacquisition@ofsted.gov.uk">dataacquisition@ofsted.gov.uk</a> with the list of education settings you might want to visit, and see if any of them comes back with a red flag.</p>
+      <p>After receiving an eligible list of education settings, you can then match the location of each inspection team member to a desirable setting.</p>
+
+      <form action="task-list" method="post" class="form govuk-!-padding-top-7">
+
+        {{ govukCheckboxes({
+          idPrefix: "rovChecked",
+          name: "rovChecked",
+          items: [
+          {
+            value: true,
+            text: "I've checked this with Data and Insight",
+            checked: checked("rovChecked", "true")
+          }
+          ]
+        }) }}
+
+        {{ govukCheckboxes({
+          idPrefix: "planCreated",
+          name: "planCreated",
+          items: [
+          {
+            value: true,
+            text: "I've created a plan for the inspection team to follow",
+            checked: checked("planCreated", "true")
+          }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+      </form>
+
+    </div><!-- end of column one -->
+
+  </div>
+
+{% endblock %}
